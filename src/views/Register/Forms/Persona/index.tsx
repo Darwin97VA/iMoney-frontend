@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 
 import Input from '../../../../components/Input'
 import Button from '../../../../components/Button'
+import Radio from '../../../../components/Radio'
 
 import classes from './style.module.css'
 
@@ -24,7 +25,7 @@ const Register = ({ addSubmit }: RegisterProps) => {
     const [celular, setCelular] = useState('')
 
     const [pep, setPep] = useState('')
-    const [isPep, setIsPep] = useState('')
+    const [isPep, setIsPep] = useState(false)
 
     const [correo, setCorreo] = useState('')
     const [contraseña, setContraseña] = useState('')
@@ -37,7 +38,11 @@ const Register = ({ addSubmit }: RegisterProps) => {
         <div className={classes.container}>
             
             <form action="" className={classes.form} onSubmit={_handleSubmit}>
-                <h1 style={{textAlign: 'center'}}>Persona Natural</h1>
+
+                <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                    <img src="/img/simbolo-persona.png" width="50px" alt="Empresa"/>
+                    <h1 style={{textAlign: 'center', marginLeft: '8px'}}>Persona Natural</h1>
+                </div>
 
                 <fieldset className={classes.fieldset}>
                     <Input label="DNI" type="number" value={dni} onChange={_handlerChange(setDni)} />
@@ -50,9 +55,13 @@ const Register = ({ addSubmit }: RegisterProps) => {
                     <Input label="Celular" type="number" placeholder="51 999 888 777"
                         value={celular} onChange={_handlerChange(setCelular)} />
 
-                    <Input label="Es Pep" value={isPep} onChange={_handlerChange(setIsPep)} />
-                    <Input label="PEP" placeholder="Persona Expuesta Políticamente" 
-                        value={pep} onChange={_handlerChange(setPep)} />
+                    <Radio value={isPep} onChange={setIsPep} label="Persona Expuesta Políticamente"/>
+                    <Input label={
+                            isPep
+                            ? 'Cargo y Empresa Pública'
+                            : 'Se habilita si es PEP'
+                        } disabled={!isPep} value={pep} 
+                        onChange={_handlerChange(setPep)} required={isPep} />
 
                     <Input label="Correo" type="email" value={correo} onChange={_handlerChange(setCorreo)} />
                     <Input label="Contraseña" type="password" placeholder="min 8 dígitos de letras/números"

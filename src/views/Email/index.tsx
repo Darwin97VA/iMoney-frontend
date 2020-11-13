@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Button from '../../components/Button'
 import Logo from '../../components/Logo'
 import GreenLink from '../../components/GreenLink'
@@ -46,7 +47,11 @@ const Email = () => {
                     <tr>
                         <td style={{width: '50px'}}></td>
                         <td style={{textAlign: 'center'}}>
-                            <Button style={{margin: 'auto'}}>Confirmar Email</Button>
+                            <Button style={{margin: 'auto'}}>
+                                <Link to="/cuenta" style={{textDecoration: 'none', color: 'white'}}>
+                                    Confirmar Email
+                                </Link>
+                            </Button>
                         </td>
                         <td style={{width: '50px'}}></td>
                     </tr>
@@ -59,7 +64,7 @@ const Email = () => {
                     </tr>
                     <tr>
                         <td colSpan={3} style={{textAlign: 'center'}}>
-                            <GreenLink to="https://imoney-frontend.herokuapp.com">https://imoney-frontend.herokuapp.com</GreenLink>
+                            <GreenLink to="/cuenta">https://imoney-frontend.herokuapp.com/cuenta</GreenLink>
                         </td>
                     </tr>
                 </table>

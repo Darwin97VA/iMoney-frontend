@@ -6,13 +6,15 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     placeholder?: string;
 }
 
-const Input = ({ label, placeholder=label, ...props }: InputProps) => {
+const Input = ({ label, placeholder=label, disabled=false, required=true, ...props }: InputProps) => {
     const [finalPlaceholder, setFinalPlaceholder] = useState('')
     return (
-        <label className={classes.container}>
-            <input type="text" className={classes.input} {...props} placeholder={finalPlaceholder} 
+        <label className={`${classes.container} ${disabled && classes.disabled}`}>
+            <input type="text" className={classes.input} disabled={disabled} 
+                placeholder={finalPlaceholder} required={required}
                 onFocus={() => setFinalPlaceholder(placeholder)} 
-                onBlur={() => setFinalPlaceholder('')} />
+                onBlur={() => setFinalPlaceholder('')}
+                {...props} />
             { label ? <div className={classes.label}> { label } </div> : null }
         </label>
     )

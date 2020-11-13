@@ -5,6 +5,7 @@ import Register from './views/Register'
 import Login from './views/Login'
 import Home from './views/Home'
 import Email from './views/Email'
+import Cuenta from './views/Cuenta'
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
       <Route path="/registro" component={Register} />
       <Route path="/login" component={Login} />
       <Route path="/email" component={Email} />
+      <Route path="/cuenta" component={Cuenta} />
       <Route exact path="/" component={Home} />
     </BrowserRouter>
   );

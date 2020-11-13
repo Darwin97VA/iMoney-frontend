@@ -1,15 +1,8 @@
 import React, { useState } from 'react'
-import Button from '../../../components/Button'
+import Button from '../../components/Button'
 import Card from './Card'
+import Bancario from './Bancario'
 import classes from './style.module.css'
-
-const Bancario = () => {
-    return (
-        <div>
-            <h1>Banco</h1>
-        </div>
-    )
-}
 
 const Cuenta = () => {
     const [viewBank, setViewBank] = useState<Boolean>(false)
