@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import GreenLink from '../../../../components/GreenLink'
 import classes from './style.module.css'
 
 const Login = () => {
+    useEffect(() => {
+        document.body.style.background = '#001C54'
+        return () => { document.body.style.background = 'transparent' }
+    }, [])
     return (
         <div className={classes.container}>
             <img src="/img/MensajeRevisaEmail.png" alt="Mensaje: Revisa tu correo"/>

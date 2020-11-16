@@ -17,11 +17,12 @@ const Checkbox = ({ label, onChange, values, result }: CheckboxProps) => {
         <div>
             <span>{ label }</span>
             {
-                values.map(({name, value}) => {
+                values.map(({name, value}, i) => {
                     return (
-                        <span>
+                        <span key={i}>
                             { name }                        
-                            <input type="checkbox" onClick={()=>onChange(value)} checked={result===value} />
+                            <input type="checkbox" onClick={()=>onChange(value)} 
+                                checked={result===value} />
                         </span>
                     )
                 })

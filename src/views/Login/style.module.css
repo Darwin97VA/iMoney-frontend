@@ -28,5 +28,5 @@
     align-items: center;
 }
 .footer > * {
-    margin: .25em;
+    margin: .25em 0;
 }

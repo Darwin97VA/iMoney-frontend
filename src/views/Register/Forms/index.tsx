@@ -27,7 +27,7 @@ const Register = () => {
     return (
         <div className={classes.container}>
             <header className={classes.header}>
-                <Logo />
+                { sended ? null : <Logo /> }
             </header>
             <main>
                 { sended ? <Sended /> : <TypesRegister show={showFinalMessage} /> }
