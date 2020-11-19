@@ -1,11 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Button from '../../components/Button'
-// eslint-disable-next-line
-import Logo, { Isotipo } from '../../components/Logo'
+import Logo from '../../components/Logo'
 import GreenLink from '../../components/GreenLink'
 import classes from './style.module.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFacebookF, faInstagram, faLinkedinIn, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons'
 
+const BLUECOLOR = '#222A4F'
 
 const Email = () => {
     return (
@@ -15,7 +17,7 @@ const Email = () => {
                     <tr>
                         <td colSpan={3} style={{
                             textAlign: 'center',
-                            background: '#222A4F',
+                            background: BLUECOLOR,
                             padding: '1em'
                         }}>
                             {/* <Isotipo color="white" width="100" /> */}
@@ -70,9 +72,28 @@ const Email = () => {
                             <GreenLink to="/cuenta">https://imoney-frontend.herokuapp.com/cuenta</GreenLink>
                         </td>
                     </tr>
+                    <tr>
+                        <td colSpan={3}> 
+                            <div style={{ display: 'flex', width:'100%', justifyContent: 'center'}}>
+                                <Icon href="https://www.instagram.com/imoneyperu/" icon={faInstagram}/>
+                                <Icon href="https://www.linkedin.com/company/imoney-peru-sac/" icon={faLinkedinIn}/>
+                                <Icon href="https://www.facebook.com/imoney.pe/?ref=bookmarks" icon={faFacebookF}/>
+                                <Icon href="https://twitter.com/imoney_peru" icon={faTwitter}/>
+                                <Icon href="https://www.youtube.com/channel/UCrGvRpgVyFpEEvITbA6NBrA?view_as=subscriber" icon={faYoutube}/>
+                            </div>
+                        </td>
+                    </tr>
                 </table>
             </main>
         </div>
+    )
+}
+const Icon = ({ icon, href }: any) => {
+    return (
+        <a target="_blank" rel="noreferrer" href={href} style={{ width: '60px', height: '60px', display: 'flex', justifyContent: 'center', alignItems: 'center',
+            borderRadius: '50%', border: '2px solid '+BLUECOLOR, color: 'white', background: BLUECOLOR, cursor: 'pointer', margin: '.5em' }}>
+            <FontAwesomeIcon icon={icon} size="2x" />
+        </a>
     )
 }
 
