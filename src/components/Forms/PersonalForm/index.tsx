@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { ReactElement, useState } from 'react'
 
-import Input from '../../../../components/Input/index'
-import Button from '../../../../components/Button'
+import Input from '../../Input/index'
+import Button from '../../Button'
+import Terms from '../../Terms'
 
 import classes from './style.module.css'
 
@@ -18,7 +19,13 @@ const Option = ({selected, children, onClick, props} : any) =>
 }}>{children}</button>
 
 
-const Personales = ({ addSubmit }: { addSubmit: Function }) => {
+interface PersonalFormProps {
+    addSubmit: Function
+    title: ReactElement | string
+    terms: boolean
+    children: ReactElement | ReactElement[] | string | null
+}
+const Personales = ({ addSubmit, title, terms, children }: PersonalFormProps) => {
     const [nombres, setNombres] = useState('')
     const [apellidos, setApellidos] = useState('')
     const [nacionalidad, setNacionalidad] = useState('')
@@ -30,7 +37,7 @@ const Personales = ({ addSubmit }: { addSubmit: Function }) => {
     return (
         <form className={classes.form}>
             <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                <h1 style={{textAlign: 'center', marginLeft: '8px'}}>1) Registra tus Datos Personales</h1>
+                <h1 style={{textAlign: 'center', marginLeft: '8px'}}> { title } </h1>
             </div>
             <fieldset className={classes.fieldset}>
                 <Input label="Nombres" value={nombres} setValue={setNombres} />
@@ -50,7 +57,12 @@ const Personales = ({ addSubmit }: { addSubmit: Function }) => {
 
                 <Input label="Cargo" value={cargo} setValue={setCargo} disabled={!isPep} />
                 <Input label="Empresas vinculadas" value={empresa} setValue={setEmpresa} disabled={!isPep} />
+
+                { children }
+
             </fieldset>
+
+            { terms ? <Terms /> : null }
 
             <Button style={{margin: 'auto', width: '300px'}}
                 onClick={(e)=>{
@@ -60,6 +72,13 @@ const Personales = ({ addSubmit }: { addSubmit: Function }) => {
 
         </form>
     )
+}
+
+Personales.defaultProps = {
+    addSubmit: ()=>{},
+    title: '1) Registra tus Datos Personales',
+    terms: false,
+    children: null
 }
 
 export default Personales

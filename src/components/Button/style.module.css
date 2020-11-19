@@ -1,9 +1,17 @@
-.button {
-    padding: .7em 1.25em;
+.btnPrimary {
     background: linear-gradient(to left, #3229BD, #00E9F9);
-    color: white;
     border-radius: 1.45em;
-    margin: 1em;
+}
+.btnSecondary {
+    background: rgb(111, 110, 110);
+    border-radius: .5em;
+}
+
+.button {
+    color: white;
+    margin: .5em auto;
+    padding: .7em 1.25em;
+    
     font-size: 1.2em;
     cursor: pointer;
     outline: none;

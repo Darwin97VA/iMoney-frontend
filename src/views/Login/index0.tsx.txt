@@ -1,8 +1,7 @@
-import { faEnvelope, faKey } from '@fortawesome/free-solid-svg-icons'
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Button from '../../components/Button'
-import Input from  '../../components/Input/index'
+import Input from  '../../components/Input'
 import Logo from  '../../components/Logo'
 import classes from './style.module.css'
 
@@ -27,8 +26,10 @@ const FormLogin = () => {
                     </h1>
                 </header>
                 <form className={classes.form} onSubmit={_handleSubmit}>
-                    <Input label="Correo" type="email" value={user} setValue={setUser} icon={faEnvelope} />
-                    <Input label="Contraseña" type="password" value={pass} setValue={setPass} icon={faKey} />
+                    <Input label="Correo" type="email" value={user} style={{fontSize: '1em'}}
+                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setUser(e.target.value)} />
+                    <Input label="Contraseña" type="password" value={pass} style={{fontSize: '1em'}}
+                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPass(e.target.value)} />
                     <Button type="submit" style={{margin: 'auto', width: '300px', fontSize: '16px'}} >ENTRAR</Button>
                 </form>
                 <footer className={classes.footer}>

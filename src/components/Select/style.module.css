@@ -1,0 +1,29 @@
+.field {
+    display: flex;
+    justify-content: space-between;
+}
+
+.ul {
+    display: none;
+    position: absolute;
+    list-style: none;
+    top: 100%;
+    background: white;
+    width: 100%;
+    left: 0;
+    border: var(--border);
+    z-index: 100;
+}
+.ul.open {
+    display: block;
+    max-height: 300px;
+}
+.li {
+    padding: .2em var(--padding-x);
+    transition: all 0s !important;
+}
+.li:hover,
+.li.selected {
+    background: rgb(0, 81, 255);
+    color: white;
+}

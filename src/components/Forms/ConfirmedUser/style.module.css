@@ -1,0 +1,20 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #001C54;
+    color: white;
+}
+.container > * {
+    max-width: 95%;
+    max-width: 600px;
+}
+.container > :nth-child(2) {
+    max-width: 50%;
+}
+.h1 {
+    font-size: 24px;
+    padding-bottom: .5em;
+}

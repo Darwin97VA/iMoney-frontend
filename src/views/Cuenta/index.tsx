@@ -19,7 +19,7 @@ const CuentaMain = () => {
             return <form>
                 <h1>Panel de Control</h1>
                 <h3>¡Bienvenido a iMoney Perú!</h3>
-                <Card title="1 Completa tu perfil" img="/img/paperCheck.png">
+                <Card title="Completa tu perfil" img="/img/paperCheck.png">
                     <span>Ingresa tu información y tus documentos para verificar tu identidad.</span>
                     <Button onClick={()=>goNext()}>Perfil de Completar</Button>
                 </Card>

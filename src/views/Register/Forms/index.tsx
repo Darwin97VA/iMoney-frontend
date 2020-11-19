@@ -24,6 +24,7 @@ const TypesRegister = ({ show }: TypesRegisterProps) => (
 const Register = () => {
     const [sended, setSended] = useState(false)
     const showFinalMessage = useCallback(() => setSended(true), [])
+    console.log('sended: ', sended)
     return (
         <div className={classes.container}>
             <header className={classes.header}>

@@ -1,13 +1,18 @@
-import React, { ImgHTMLAttributes } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 
-interface LogoProps extends ImgHTMLAttributes<HTMLImageElement> {
-    img?: string
-}
-
-const Logo = ({ img='/img/Logo.png', ...props }: LogoProps) => 
+const Logo = ({ color='black', ...props }: any) => 
 <Link to="/">
-    <img src={img} alt="Logode iMoney" width="300" {...props}/>
+    <img src={`/img/logotipo-${color}.png`} alt="iMoney" width="300" {...props}/>
 </Link>
 
+const Isotipo = ({ color='black', ...props}: any) => 
+<Link to="/">
+    <img src={`/img/isotipo-${color}.png`} alt="iMoney" {...props}/>
+</Link>
+
+
+export {
+    Isotipo
+}
 export default Logo

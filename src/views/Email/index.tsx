@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Button from '../../components/Button'
-import Logo from '../../components/Logo'
+// eslint-disable-next-line
+import Logo, { Isotipo } from '../../components/Logo'
 import GreenLink from '../../components/GreenLink'
 import classes from './style.module.css'
 
@@ -15,8 +16,10 @@ const Email = () => {
                         <td colSpan={3} style={{
                             textAlign: 'center',
                             background: '#222A4F',
+                            padding: '1em'
                         }}>
-                            <Logo img='/img/LogoAzul.png' width="250"/>
+                            {/* <Isotipo color="white" width="100" /> */}
+                            <Logo color="white" width="350"/>
                         </td>
                     </tr>
                     <tr>

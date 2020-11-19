@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 
-import Input from '../../../../components/Input/index'
-import Select from '../../../../components/Select/index'
-import Button, { ButtonFile } from '../../../../components/Button'
+import Input from '../../Input/index'
+import Select from '../../Select/index'
+import Button, { ButtonFile } from '../../Button'
 
 import classes from './style.module.css'
 import { Link } from 'react-router-dom'
