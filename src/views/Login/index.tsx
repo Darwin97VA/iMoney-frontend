@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Button from '../../components/Button'
 import Input from  '../../components/Input/index'
-import Logo from  '../../components/Logo'
+import { Isotipo } from  '../../components/Logo'
 import classes from './style.module.css'
 
 
@@ -19,7 +19,7 @@ const FormLogin = () => {
         <div className={classes.containerAll}>
             <div className={classes.container}>
                 <header className={classes.header}>
-                    <Logo />
+                    <Isotipo color="blue" width="150" />
                     <h1 style={{textAlign: 'center', marginTop: '1em', fontWeight:100, display: 'flex',
                     flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
                         <span>Bienvenido a <strong>iMoney</strong></span>
