@@ -27,7 +27,7 @@ const CambioSujeto = () => {
     }
     return null
   })
-  return sujeto ? (
+  return (!sujeto) ? <h3>Error</h3> : (
     <div>
         <Button onClick={() => setOpen(true)}>
           <div style={{display: 'flex',flexDirection: 'column', alignItems: 'flex-end'}}>
@@ -37,7 +37,7 @@ const CambioSujeto = () => {
         </Button>
         <Sujetos open={open} onClose={() => setOpen(false)} actual={sujeto?.tipo} />
     </div>
-  ) : <h3>Error</h3>
+  )
 }
 
 export default CambioSujeto

@@ -5,6 +5,8 @@ import { Provider } from 'react-redux'
 import store from '../store/store'
 
 import Login from '../views/Login'
+import Registro from '../views/Registro'
+
 import Perfil from '../views/Perfil'
 import Email from '../views/Email'
 import Cuenta from '../views/Cuenta'
@@ -52,6 +54,7 @@ const App = () => {
         <Route exact path="/" component={()=><Redirect to="/perfil" />} />
 
         <Route path="/login" component={Login} />
+        <Route path="/registro" component={Registro} />
         <Route path="/email" component={Email} />
         <Route path="/test" component={Test} />
         

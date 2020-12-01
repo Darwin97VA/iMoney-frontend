@@ -67,7 +67,7 @@ const FormLogin = () => {
                         <strong> Inicia sesión </strong>
                     </h1>
                 </header>
-                <form className={classes.form} onSubmit={_handleSubmit}>
+                <form className={classes.form} onSubmit={_handleSubmit} autoComplete="on">
                     <Input label="Correo" type="email" value={user} setValue={setUser} icon={faEnvelope} />
                     <Input label="Contraseña" type="password" value={pass} setValue={setPass} icon={faKey} />
                     <Button type="submit" style={{margin: 'auto', width: '300px', fontSize: '16px'}} >ENTRAR</Button>

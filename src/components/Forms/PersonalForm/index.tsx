@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from 'react'
+import React, { ReactElement, useEffect, useState } from 'react'
 
 import Input from '../../Input/index'
 import Button from '../../Button'
@@ -24,24 +24,38 @@ interface PersonalFormProps {
     title: ReactElement | string
     terms: boolean
     children: ReactElement | ReactElement[] | string | null
+    setData?: (data:any) => void
 }
-const Personales = ({ addSubmit, title, terms, children }: PersonalFormProps) => {
+const Personales = ({ addSubmit, title, terms, children, setData=()=>{} }: PersonalFormProps) => {
     const [nombres, setNombres] = useState('')
     const [apellidos, setApellidos] = useState('')
+    const [dni, setDni] = useState('')
     const [nacionalidad, setNacionalidad] = useState('')
     const [ocupacion, setOcupacion] = useState('')
     const [isPep, setIsPep] = useState(false)
-    const [cargo, setCargo] = useState('')
-    const [empresa, setEmpresa] = useState('')
+    const [cargosPep, setCargosPep] = useState('')
+    const [empresasPep, setEmpresasPep] = useState('')
+
+
+    useEffect(() => {
+        setData({ 
+            nombres, apellidos, dni, nacionalidad, ocupacion, isPep, cargosPep, empresasPep
+        })
+        // eslint-disable-next-line
+    }, [
+        nombres, apellidos, dni, nacionalidad, ocupacion, isPep, cargosPep, empresasPep
+    ])
 
     return (
-        <form className={classes.form}>
+        <form className={classes.form} autoComplete="on">
             <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                 <h1 style={{textAlign: 'center', marginLeft: '8px'}}> { title } </h1>
             </div>
             <fieldset className={classes.fieldset}>
                 <Input label="Nombres" value={nombres} setValue={setNombres} />
                 <Input label="Apellidos" value={apellidos} setValue={setApellidos} />
+
+                <Input label="NI" value={dni} setValue={setDni} />
 
                 <Input label="Nacionalidad" value={nacionalidad} setValue={setNacionalidad} />
                 <Input label="Ocupación" value={ocupacion} setValue={setOcupacion} />
@@ -55,8 +69,8 @@ const Personales = ({ addSubmit, title, terms, children }: PersonalFormProps) =>
                     </div>
                 </div>
 
-                <Input label="Cargo" value={cargo} setValue={setCargo} disabled={!isPep} />
-                <Input label="Empresas vinculadas" value={empresa} setValue={setEmpresa} disabled={!isPep} />
+                <Input label="Cargo" value={cargosPep} setValue={setCargosPep} disabled={!isPep} />
+                <Input label="Empresas vinculadas" value={empresasPep} setValue={setEmpresasPep} disabled={!isPep} />
 
                 { children }
 

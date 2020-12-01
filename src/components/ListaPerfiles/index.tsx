@@ -8,10 +8,10 @@ import CardSujeto from './CardSujeto'
 const ModalSujetos = () => {
   const history = useHistory()
   const asignadosEn = useSelector((data: RootState) => {
-    const yo = data.Personas.find(p=>p._id === data.Sesion.persona)
+    const yo = data.Personas.find(p=>String(p._id) === String(data.Sesion.persona))
     return yo?.asignamientos || []
   })
-  console.log(asignadosEn)
+  console.log("---asignadosEn", asignadosEn)
 
   return (
     <div >
@@ -19,8 +19,8 @@ const ModalSujetos = () => {
         Crear nuevo Perfil
       </Button>
       {
-        asignadosEn.map(asignamiento => 
-          <CardSujeto asignamiento={asignamiento} key={asignamiento._id} />)
+        asignadosEn.map((asignamiento, i) => 
+          <CardSujeto asignamiento={asignamiento} key={i} />)
       }
     </div>
   )

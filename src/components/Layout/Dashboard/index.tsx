@@ -11,6 +11,8 @@ import { useHistory, useLocation } from 'react-router-dom';
 import { Isotipo } from '../../Logo';
 import CambioSujeto from './CambioSujeto'
 import { AppBar, IconButton, ListItem, Toolbar } from '@material-ui/core';
+import { RootState } from '../../../store/store';
+import { useSelector } from 'react-redux';
 
 const useStyles = makeStyles({
   list: {
@@ -45,11 +47,12 @@ export default function SwipeableTemporaryDrawer({ children }: { children: React
   const classes = useStyles();
   const [open, setOpen] = useState(false)
   const [esMovil] = useState(isMobile())
+  const noLoged = !useSelector((data: RootState) => data.Sesion.token)
+
 
   const _handleOpen = () => {
     setOpen(!open)
   }
-
   
   return (
     <div style={{minHeight: '100vh', width: '100%'}}>
@@ -83,7 +86,8 @@ export default function SwipeableTemporaryDrawer({ children }: { children: React
       <main style={{padding: '2em'}}>
         { children }
       </main>
-      <SwipeableDrawer
+      { noLoged ? null :  
+        <SwipeableDrawer
         anchor={'left'}
         open={open}
         onClose={_handleOpen}
@@ -115,6 +119,7 @@ export default function SwipeableTemporaryDrawer({ children }: { children: React
           </div>
         </div>
       </SwipeableDrawer>
+      }
     </div>
   );
 }

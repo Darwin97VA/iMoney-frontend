@@ -5,7 +5,7 @@ import {
 } from "./types"
 import { IEmpresa } from "../../interfaces/Empresa"
 
-export function addMessage(empresa: IEmpresa): EmpresaActionTypes {
+export function addEmpresa(empresa: IEmpresa): EmpresaActionTypes {
   return {
     type: ADD_EMPRESA,
     payload: empresa,
