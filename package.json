@@ -29,9 +29,9 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
     "test": "react-scripts test",
+    "dev": "react-scripts start",
+    "build": "git add . && git commit -m",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public --no-dll",
     "build-storybook": "build-storybook -s public --no-dll"
@@ -69,7 +69,6 @@
     "autoprefixer": "^10.0.2",
     "babel-loader": "^8.1.0",
     "postcss-cli": "^8.3.0",
-    "react-is": "^17.0.1",
-    "tailwindcss": "^2.0.1"
+    "react-is": "^17.0.1"
   }
 }
