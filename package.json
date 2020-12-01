@@ -31,7 +31,7 @@
   "scripts": {
     "test": "react-scripts test",
     "dev": "react-scripts start",
-    "build": "git add . && git commit -m",
+    "deploy": "react-scripts build && git add . && git commit -m",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public --no-dll",
     "build-storybook": "build-storybook -s public --no-dll"
