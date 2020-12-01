@@ -7,7 +7,7 @@ const Logo = ({ color='black', ...props }: any) =>
 </Link>
 
 const Isotipo = ({ color='blue', ...props}: any) => 
-<Link to="/">
+<Link to="/inversiones">
     <img src={`/img/isotipo-${color}.png`} alt="iMoney" {...props}/>
 </Link>
 

@@ -13,7 +13,9 @@ const ModalSujetos = ({ open, onClose, actual }: ModalSujetosProps) => {
     <Modal open={open} onClose={onClose} style={{height: '100%', width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '1em'}}
       aria-labelledby="simple-modal-title"
       aria-describedby="simple-modal-description">
-      <ListaPerfiles />
+      <div>
+        <ListaPerfiles />
+      </div>
     </Modal>
   )
 }

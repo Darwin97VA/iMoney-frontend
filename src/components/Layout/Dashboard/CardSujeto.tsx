@@ -80,7 +80,7 @@ export default function SimpleCard({ asignamiento }: { asignamiento: Asignamient
 
   const estaSeleccionado = sesion.asignado?._id===_id
 
-  return sujeto && cargo ? (
+  return (sujeto && cargo) ? (
     <Card>
       <CardContent>
         <Grilla nombres={nombres} tipo={tipo} />

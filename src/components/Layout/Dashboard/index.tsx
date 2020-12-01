@@ -69,9 +69,12 @@ export default function SwipeableTemporaryDrawer({ children }: { children: React
           color: 'black'
         }}>
           <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <IconButton edge="start" color="inherit" aria-label="menu" onClick={_handleOpen}>
-              <MenuIcon />
-            </IconButton>
+            {
+              noLoged ? null :
+              <IconButton edge="start" color="inherit" aria-label="menu" onClick={_handleOpen}>
+                <MenuIcon />
+              </IconButton>
+            }
             <Isotipo width="60"/>
           </div>
           

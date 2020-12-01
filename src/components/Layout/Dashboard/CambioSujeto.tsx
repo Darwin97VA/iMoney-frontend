@@ -1,4 +1,5 @@
 import { Button } from '@material-ui/core'
+import { Link } from 'react-router-dom'
 import React, { useState } from 'react' 
 import { useSelector } from 'react-redux'
 import { RootState } from '../../../store/store'
@@ -27,7 +28,7 @@ const CambioSujeto = () => {
     }
     return null
   })
-  return (!sujeto) ? <h3>Error</h3> : (
+  return (!sujeto) ? <Link to="/login" style={{textDecoration: 'none'}}>Login</Link> : (
     <div>
         <Button onClick={() => setOpen(true)}>
           <div style={{display: 'flex',flexDirection: 'column', alignItems: 'flex-end'}}>
