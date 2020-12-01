@@ -1,0 +1,124 @@
+:root {
+    --field-size: 18px;
+    --field-rgb: 84, 84, 84;
+    --field-color: rgb(var(--field-rgb));
+    --field-border: 2px solid var(--field-color);
+    --field-radius: .5em; /* 9px */
+    --field-pad-y: .5em;
+    --field-pad-x: .5em;
+    --field-padding: var(--field-pad-y) var(--field-pad-x); /* 9px */
+    --field-focus-bg: 0px 5px 15px 0px rgb(0, 201, 100);
+
+
+    --color-invalid: rgb(255, 72, 72);
+    --color-invalid-shadow: rgba(255, 72, 72, .5);
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Helvetica;
+}
+
+
+h1 {
+    text-align: center;
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
+
+
+
+.field-container {
+    font-size: 18px;
+    border: var(--field-border);
+    color: var(--field-color);
+    border-radius: var(--field-radius);
+    position: relative;
+    cursor: pointer;
+    min-width: 150px;
+    outline: none;
+    
+    margin: .5em 0;
+    padding: var(--padding);
+}
+
+/* #region  Field */
+
+.field-container,
+.field-container * {
+    transition: all .3s;
+    font-size: 1em;
+}
+.field-container {
+    --color: rgb(84, 84, 84);
+
+    --color-box: var(--color);
+    --color-shadow: rgba(0, 0, 0, .5);
+
+    --border: 2px solid var(--color-box);
+    
+    --radius: .5em;
+
+    --padding-x: .75em;
+    --padding-y: .5em;
+
+
+
+    position: relative;
+    font-size: 18px;
+    padding: var(--padding-y) var(--padding-x);
+    color: var(--color);
+    border: var(--border);
+    border-radius: var(--radius);
+    outline: none;
+}
+.field-label-movable {
+    position: absolute;
+    left: .7em;
+    padding: 0 .2em;
+    background: white;
+    color: var(--color-box);
+}
+.field-label-movable.moved {
+    font-size: .8em;
+    transform: translateY(calc(-1.35em));
+}
+.focus {
+    box-shadow: 0px 5px 15px 0px var(--color-shadow);
+}
+
+/* #region Field-Status */
+.normal {
+    --color-box: var(--color);
+    --color-shadow: rgba(0, 0, 0, .5);
+}
+.invalid {
+    --color-box: var(--color-invalid);
+    --color-shadow: var(--color-invalid-shadow);
+}
+.permitted {
+    --color-box: rgb(0, 160, 100);
+    --color-shadow: rgba(0, 160, 100, .5);
+}
+/* #endregion Field-Status */
+
+/* #endregion  Field */

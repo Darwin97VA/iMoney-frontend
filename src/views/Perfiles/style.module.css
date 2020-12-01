@@ -1,0 +1,14 @@
+.container, .cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container {
+    width: 100%;
+    flex-direction: column;
+}
+.title {
+    margin-bottom: 1.2em;
+    max-width: 400px;
+    text-align: center;
+}

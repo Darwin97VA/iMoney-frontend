@@ -1,21 +1,68 @@
 import { faEnvelope, faKey } from '@fortawesome/free-solid-svg-icons'
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link, Redirect } from 'react-router-dom'
 import Button from '../../components/Button'
 import Input from  '../../components/Input/index'
 import { Isotipo } from  '../../components/Logo'
+import { insertarTodasEmpresas } from '../../store/Empresas/actions'
+import { insertarTodasPersonas } from '../../store/Personas/actions'
+import { addSesion } from '../../store/Sesion/actions'
+import { RootState } from '../../store/store'
 import classes from './style.module.css'
 
+const { REACT_APP_URLHOST, NODE_ENV } = process.env
+const API_DEV = `${REACT_APP_URLHOST}/api/persona/entrar`
+const API_PROD = (()=>{
+    const parts = window.location.origin.split(':')
+    parts.pop()
+    return parts.join(':') + '/api/persona/entrar'
+})();
+const API = (NODE_ENV === 'production' ? API_PROD : API_DEV)
 
 const FormLogin = () => {
     const [user, setUser] = useState('')
     const [pass, setPass] = useState('')
+    const [sending, setSending] = useState(false)
+
+    const dispatch = useDispatch()
+    const isAuth = useSelector((state: RootState) => state.Sesion.token)
 
     const _handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        alert('Bienvenido a iMoney Perú!')
+        setSending(true)
+        const body = JSON.stringify({
+            correo: user,
+            contraseña: pass
+        })
+        fetch(API, {
+            method: 'POST',
+            body,
+            headers: {
+            'Content-Type': 'application/json'
+            },
+            mode: 'cors'
+        }).then(res=>res.json())
+        .then(res => {
+            const { token, _id, /* persona, */ Personas, Empresas } = res.data
+            setSending(false)
+            dispatch(insertarTodasPersonas(Personas))
+            dispatch(insertarTodasEmpresas(Empresas))
+            // dispatch(registroInsertarMiPersona(persona))
+            dispatch(addSesion({
+                token,
+                persona: _id,
+                asignado: {
+                    _id,
+                    tipo: 'Persona'
+                }
+            }))
+        }).catch(error=>{
+            console.error(error)
+            alert('Credencials inválidas')
+        })
     }
-    return (
+    return isAuth ? <Redirect to="/" /> : (
         <div className={classes.containerAll}>
             <div className={classes.container}>
                 <header className={classes.header}>
@@ -35,7 +82,8 @@ const FormLogin = () => {
                     <Link to="/login" style={{color:'blue'}}>¿Olvidaste tu contraseña?</Link>
                     <span>¿No tienes una cuenta?</span>
                     <Link to="/registro" style={{textDecoration: 'none', width: '100%'}}>
-                        <Button style={{fontSize: '1em',margin: 0,color: 'white', background: '#7F7F7F', width: '100%', borderRadius: '.5em'}}>
+                        <Button disabled={sending}
+                        style={{fontSize: '1em',margin: 0,color: 'white', background: '#7F7F7F', width: '100%', borderRadius: '.5em'}}>
                         REGISTRATE
                         </Button>
                     </Link>
