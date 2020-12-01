@@ -12,11 +12,12 @@ import { RootState } from '../../store/store'
 import classes from './style.module.css'
 
 const { REACT_APP_URLHOST, NODE_ENV } = process.env
-const API_DEV = `${REACT_APP_URLHOST}/api/persona/entrar`
+console.log(REACT_APP_URLHOST)
+const API_DEV = `${REACT_APP_URLHOST}api/persona/entrar`
 const API_PROD = (()=>{
     const parts = window.location.origin.split(':')
     parts.pop()
-    return parts.join(':') + '/api/persona/entrar'
+    return parts.join(':') + 'api/persona/entrar'
 })();
 const API = (NODE_ENV === 'development' ? API_DEV : API_PROD)
 

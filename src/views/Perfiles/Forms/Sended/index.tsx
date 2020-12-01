@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import GreenLink from '../../../../components/GreenLink'
 import classes from './style.module.css'
 

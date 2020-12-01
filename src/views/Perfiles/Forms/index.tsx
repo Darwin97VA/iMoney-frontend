@@ -3,7 +3,6 @@ import { Route, Switch } from 'react-router-dom'
 import Persona from './Persona'
 import Empresa from './Empresa'
 import Sended from './Sended'
-import Logo from '../../../components/Logo'
 
 import classes from './style.module.css'
 

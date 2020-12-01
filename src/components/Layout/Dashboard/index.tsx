@@ -2,7 +2,6 @@ import React, { ReactNode, useState } from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
-import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
 import Lateral from './Lateral'
 import Permanente from './Permanent'
