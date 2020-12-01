@@ -18,7 +18,7 @@ const API_PROD = (()=>{
     parts.pop()
     return parts.join(':') + '/api/persona/entrar'
 })();
-const API = (NODE_ENV === 'production' ? API_PROD : API_DEV)
+const API = (NODE_ENV === 'development' ? API_DEV : API_PROD)
 
 const FormLogin = () => {
     const [user, setUser] = useState('')
