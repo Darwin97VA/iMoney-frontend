@@ -11,7 +11,8 @@ import { addSesion } from '../../store/Sesion/actions'
 import { RootState } from '../../store/store'
 import classes from './style.module.css'
 
-const { REACT_APP_URLHOST, NODE_ENV } = process.env
+const { REACT_APP_URLHOST } = process.env
+const API = REACT_APP_URLHOST + 'api/persona/entrar'
 
 const FormLogin = () => {
     const [user, setUser] = useState('')
@@ -28,7 +29,7 @@ const FormLogin = () => {
             correo: user,
             contraseña: pass
         })
-        fetch(REACT_APP_URLHOST, {
+        fetch(API, {
             method: 'POST',
             body,
             headers: {
