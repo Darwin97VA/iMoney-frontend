@@ -12,14 +12,6 @@ import { RootState } from '../../store/store'
 import classes from './style.module.css'
 
 const { REACT_APP_URLHOST, NODE_ENV } = process.env
-console.log(REACT_APP_URLHOST)
-const API_DEV = `${REACT_APP_URLHOST}api/persona/entrar`
-const API_PROD = (()=>{
-    const parts = window.location.origin.split(':')
-    parts.pop()
-    return parts.join(':') + 'api/persona/entrar'
-})();
-const API = (NODE_ENV === 'development' ? API_DEV : API_PROD)
 
 const FormLogin = () => {
     const [user, setUser] = useState('')
@@ -36,7 +28,7 @@ const FormLogin = () => {
             correo: user,
             contraseña: pass
         })
-        fetch(API, {
+        fetch(REACT_APP_URLHOST, {
             method: 'POST',
             body,
             headers: {
