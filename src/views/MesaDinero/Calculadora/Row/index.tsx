@@ -1,7 +1,7 @@
 import { Menu } from '@material-ui/core';
 import { MenuItem } from '@material-ui/core';
 import { Button } from '@material-ui/core';
-import React, { ChangeEvent, MouseEvent } from 'react'
+import React, { MouseEvent } from 'react'
 
 const TipoCuenta = ({ cuenta, setCuenta, img }: { img: string, cuenta: string, setCuenta: (data: any) => void }) => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);

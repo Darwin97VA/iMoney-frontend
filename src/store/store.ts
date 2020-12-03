@@ -1,4 +1,5 @@
 import { createStore, combineReducers, applyMiddleware } from "redux"
+import { save, load } from "redux-localstorage-simple"
 import { composeWithDevTools } from "redux-devtools-extension"
 import thunk from "redux-thunk"
 
@@ -20,10 +21,14 @@ const reducer = combineReducers({
   Empresas,
 })
 
-const store = createStore(
+const createStoreWithMiddleware = composeWithDevTools(
+  applyMiddleware(thunk, save())
+)(createStore)
+
+const store = createStoreWithMiddleware(
   reducer,
   // defaultState,
-  composeWithDevTools(applyMiddleware(thunk))
+  load()
 )
 
 export default store

@@ -54,6 +54,7 @@ const Perfiles = () => {
         <div className={classes.container}>
             <Switch>
                 <Route exact path="/perfiles">
+                    <h1>Perfiles</h1>
                     <ListaPerfiles />
                 </Route>
                 <Route path="/perfiles/crear">

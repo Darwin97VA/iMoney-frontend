@@ -9,7 +9,7 @@ import Registro from '../views/Registro'
 
 import Perfil from '../views/Perfil'
 import Email from '../views/Email'
-import Cuenta from '../views/Cuenta'
+import Cuentas from '../views/Cuentas'
 import Operaciones from '../views/Operaciones'
 import NotFound from '../views/NotFound'
 import Perfiles from '../views/Perfiles'
@@ -22,7 +22,7 @@ import Protected from '../components/Protected'
 
 import Test from '../views/Test'
 
-import Layout from '../components/Layout/Dashboard'
+import Layout from '../components/Layout'
 
 import './global.css'
 
@@ -37,8 +37,9 @@ const LayoutPages = () => {
         <Protected path="/perfiles"><Perfiles /></Protected>
         <Protected path="/perfil"><Perfil /></Protected>
         <Protected path="/operaciones"><Operaciones /></Protected>
-        <Protected path="/mensajes"><Cuenta /></Protected>
-        <Protected path="/configuraciones"><Cuenta /></Protected>
+        <Protected path="/cuentas"><Cuentas /></Protected>
+        <Protected path="/mensajes"><br /></Protected>
+        <Protected path="/configuraciones"><br /></Protected>
       
         <Route component={NotFound} />
       
@@ -51,14 +52,16 @@ const App = () => {
   return (
     <Provider store={store}>
       <BrowserRouter>
-        <Route exact path="/" component={()=><Redirect to="/perfil" />} />
+        <Switch>
+          <Route exact path="/" component={()=><Redirect to="/perfil" />} />
 
-        <Route path="/login" component={Login} />
-        <Route path="/registro" component={Registro} />
-        <Route path="/email" component={Email} />
-        <Route path="/test" component={Test} />
-        
-        <Route component={LayoutPages} />
+          <Route path="/login" component={Login} />
+          <Route path="/registro" component={Registro} />
+          <Route path="/email" component={Email} />
+          <Route path="/test" component={Test} />
+          
+          <Route component={LayoutPages} />
+        </Switch>
       </BrowserRouter>
     </Provider>
   )

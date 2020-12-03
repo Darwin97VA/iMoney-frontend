@@ -2,7 +2,7 @@ import { Button } from '@material-ui/core'
 import { Link } from 'react-router-dom'
 import React, { useState } from 'react' 
 import { useSelector } from 'react-redux'
-import { RootState } from '../../../store/store'
+import { RootState } from '../../store/store'
 import Sujetos from './Sujetos'
 
 const CambioSujeto = () => {

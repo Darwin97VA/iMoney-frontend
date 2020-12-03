@@ -31,7 +31,7 @@ const Calculadora = () => {
   const [tipoCambio, setTipoCambio] = useState<TipoCambio>(TipoCambio.Compra) 
   const result = tipoCambio==='compra' ? (valor * data[tipoCambio]) : (valor / data[tipoCambio])
   const [cuentaSalida, setCuentaSalida] = useState('')
-  const [cuentaLlegada, setCuentaLlegada] = useState('')
+  // const [cuentaLlegada, setCuentaLlegada] = useState('')
   
   return (
     <div style={{width: '300px', border: '1px solid black'}}>

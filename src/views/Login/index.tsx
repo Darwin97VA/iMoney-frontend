@@ -69,7 +69,7 @@ const FormLogin = () => {
                 </header>
                 <form className={classes.form} onSubmit={_handleSubmit} autoComplete="on">
                     <Input label="Correo" type="email" value={user} setValue={setUser} icon={faEnvelope} />
-                    <Input label="Contraseña" type="password" value={pass} setValue={setPass} icon={faKey} />
+                    <Input label="Contraseña" type="password" value={pass} setValue={setPass} icon={faKey} autoComplete="on" />
                     <Button type="submit" style={{margin: 'auto', width: '300px', fontSize: '16px'}} >ENTRAR</Button>
                 </form>
                 <footer className={classes.footer}>

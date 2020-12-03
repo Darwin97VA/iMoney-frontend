@@ -2,15 +2,15 @@ import React, { ReactNode } from 'react';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import { Asignamiento, NivelAsignacion } from '../../../interfaces/Utils';
-import { RootState } from '../../../store/store';
+import { Asignamiento, NivelAsignacion } from '../../interfaces/Utils';
+import { RootState } from '../../store/store';
 import { useDispatch, useSelector } from 'react-redux';
 
 import LocationCityIcon from '@material-ui/icons/LocationCity';
 import PersonIcon from '@material-ui/icons/Person';
-import { EmpresaState } from '../../../store/Empresas/types';
-import { PersonaState } from '../../../store/Personas/types';
-import { editAsignacion } from '../../../store/Sesion/actions';
+import { EmpresaState } from '../../store/Empresas/types';
+import { PersonaState } from '../../store/Personas/types';
+import { editAsignacion } from '../../store/Sesion/actions';
 import { ListItem } from '@material-ui/core';
 
 const Grilla = ({ tipo, nombres }: { tipo: ReactNode, nombres: ReactNode }) => {

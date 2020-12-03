@@ -8,10 +8,10 @@ import Permanente from './Permanent'
 import Servicios from './Servicios'
 import MenuIcon from '@material-ui/icons/Menu';
 import { useHistory, useLocation } from 'react-router-dom';
-import { Isotipo } from '../../Logo';
+import { Isotipo } from '../Logo';
 import CambioSujeto from './CambioSujeto'
 import { AppBar, IconButton, ListItem, Toolbar } from '@material-ui/core';
-import { RootState } from '../../../store/store';
+import { RootState } from '../../store/store';
 import { useSelector } from 'react-redux';
 
 const useStyles = makeStyles({
